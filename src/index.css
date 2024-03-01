@@ -1,0 +1,34 @@
+:root {
+  --bg-light: #f4f4f4;
+  --bg-dark: #fff;
+  --grey: #b1a7a763;
+  --btn-color: rgb(148, 148, 188);
+  --btn-text: rgb(46, 45, 45);
+  --text-light: #232323;
+  --box-shadow: 5px 2px 2px 0px rgba(168, 137, 137, 0.445);
+  --transition: 0.3s;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  transition: all var(--transition);
+  font-family: "Times New Roman", Times, serif;
+  font-size: 16px;
+}
+
+.app {
+  height: 100vh;
+  background-color: var(--bg-light);
+}
+
+.dark {
+  --bg-light: #232323;
+  --bg-dark: #000;
+  --btn-color: rgb(29, 29, 78);
+  --btn-text: rgb(234, 234, 234);
+  --grey: #524a4a63;
+  --text-light: #fafafa;
+  --box-shadow: 5px 2px 2px 0px rgba(216, 177, 177, 0.445);
+}
