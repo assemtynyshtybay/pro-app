@@ -1,35 +1,42 @@
-import { useContext, useRef, useState } from "react";
+import { useContext } from "react";
 import { ThemeContext } from "../hocs/ThemeContext";
 import { MdLightMode, MdOutlineNightlight } from "react-icons/md";
 import FormC from "./Form";
 import styled from "styled-components";
 import { FaUser } from "react-icons/fa6";
 import { TfiControlForward } from "react-icons/tfi";
+import { useNavigate } from "react-router-dom";
+import { HOME, NEWS, PRODUCTS } from "../utils/variables";
+import { useOutClick } from "../hooks/useOutClick";
 
 const NavBar = () => {
   const { isDarkTheme, toggleTheme } = useContext(ThemeContext);
-  const [isUserData, setIsUserData] = useState(false);
-  const dataRef = useRef();
+  const { setIsOpen, isOpen: isUserData, openRef } = useOutClick();
+  const nav = useNavigate();
 
   return (
     <NavBarContainer>
-      <Icon>
+      <Icon onClick={() => nav(HOME)}>
         <TfiControlForward size={35} color="orange" />
         <span>elta</span>
       </Icon>
       <NavTabs>
-        <Icon onClick={toggleTheme.bind(null)}>
+        <Tab onClick={() => nav(HOME)}>Главная</Tab>
+        <Tab onClick={() => nav(PRODUCTS)}>Магазин</Tab>
+        <Tab onClick={() => nav(NEWS)}>Новости</Tab>
+
+        <Icon onClick={toggleTheme.bind(null)} data-title="Режим">
           {isDarkTheme ? (
             <MdLightMode size={30} />
           ) : (
             <MdOutlineNightlight size={30} />
           )}
         </Icon>
-        <Icon>
-          <FaUser onClick={() => setIsUserData((v) => !v)} size={30} />
+        <Icon data-title="Профиль">
+          <FaUser onClick={() => setIsOpen((v) => !v)} size={30} />
         </Icon>
       </NavTabs>
-      {isUserData && <FormC useRef={dataRef} />}
+      {isUserData && <FormC dataRef={openRef} />}
     </NavBarContainer>
   );
 };
@@ -37,11 +44,10 @@ const NavBar = () => {
 export default NavBar;
 
 const NavBarContainer = styled.div`
-  height: 60px;
+  grid-area: nav;
   width: 100%;
   background-color: var(--grey);
-  padding: 10px 50px;
-
+  padding: 0.25rem 8rem;
   display: flex;
   justify-content: space-between;
   gap: 10px;
@@ -64,4 +70,10 @@ const Icon = styled.span`
   span {
     font-size: 2rem;
   }
+`;
+
+const Tab = styled.div`
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--dark-blue);
 `;

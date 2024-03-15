@@ -5,7 +5,7 @@ import styled from "styled-components";
 import { FaRegSave } from "react-icons/fa";
 import { useForm } from "react-hook-form";
 
-const FormC = () => {
+const FormC = ({ dataRef }) => {
   const { data, setData } = useContext(ThemeContext);
   const {
     register,
@@ -24,7 +24,7 @@ const FormC = () => {
   };
 
   return (
-    <UserProfileContainer>
+    <UserProfileContainer ref={dataRef}>
       <Title>Профиль</Title>
       <FormContainer onSubmit={handleSubmit(handleSubmitData)}>
         <Field>
@@ -88,12 +88,13 @@ const Field = styled.div`
   display: flex;
   flex-flow: column;
   gap: 10px;
+  margin-bottom: 10px;
 `;
 
 const Label = styled.label`
   font-size: 1.5rem;
   color: var(--text-light);
-  font-weight: 600;
+  font-weight: 500;
   text-align: left;
 `;
 
@@ -105,11 +106,11 @@ const MInput = styled.input`
   font-size: 1.5rem;
   background-color: var(--bg-light);
   color: var(--text-light);
-  font-weight: 600;
+  font-weight: 400;
   outline: none;
 `;
 
-const MButton = styled.button`
+export const MButton = styled.button`
   display: flex;
   flex-flow: row nowrap;
   gap: 3px;
@@ -117,14 +118,12 @@ const MButton = styled.button`
   justify-content: center;
   width: fit-content;
   padding: 0.3rem 0.5rem;
-  font-size: 1.5rem;
+  font-size: 1rem;
   border: 1px solid var(--grey);
   border-radius: 5px;
   background-color: var(--btn-color);
   color: var(--btn-text);
-  font-weight: 700;
   cursor: pointer;
-  margin-top: 20px;
 `;
 
 const ErrorMessage = styled.p`
@@ -138,8 +137,9 @@ const ErrorMessage = styled.p`
   border-bottom: 1px solid var(--grey);
 `;
 
-const Title = styled.span`
+export const Title = styled.span`
   font-weight: 600;
   font-size: 1.8rem;
+  padding: 4rem 0;
   color: var(--text-light);
 `;
