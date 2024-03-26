@@ -74,6 +74,7 @@ const UserProfileContainer = styled.div`
   border-radius: 5px;
   box-shadow: var(--box-shadow);
   background-color: var(--bg-dark);
+  z-index: 9999;
 `;
 
 const FormContainer = styled.form`

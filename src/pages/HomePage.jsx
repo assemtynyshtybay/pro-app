@@ -1,16 +1,19 @@
 import React from "react";
 import styled from "styled-components";
+import Slider from "../components/Slider/Slider";
 
 const HomePage = () => {
-  return <PageContainer></PageContainer>;
+  return (
+    <PageContainer>
+      <Slider autoPlayTime={3000}/>
+    </PageContainer>
+  );
 };
 
 export default HomePage;
 
 const PageContainer = styled.div`
-  padding: 1rem;
-  display: grid;
-  grid-template-columns: 25% 65%;
-  grid-template-rows: 400px;
+  padding: 3rem 2rem;
+  display: flex;
   align-items: center;
 `;

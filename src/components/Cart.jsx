@@ -23,7 +23,6 @@ const Cart = ({ openRef, setIsOpen }) => {
         setIsLoading(false);
       });
     });
-    console.log(product);
   };
 
   useEffect(() => {
@@ -45,14 +44,16 @@ const Cart = ({ openRef, setIsOpen }) => {
   return (
     <>
       <MCartContainer ref={openRef}>
-        <Close onClick={() => setIsOpen(false)}>x</Close>
+        <Close onClick={() => setIsOpen(false)}>❌</Close>
         {isLoading ? (
           <Loading />
         ) : (
-          <div>
-            {product?.map((item) => (
-              <div key={item.productId}>{item.productId}</div>
-            ))}
+          <div style={{ marginTop: "60px" }}>
+            {/* {product.length < 1
+              ? product?.map((item) => (
+                  <div key={item.productId}>{item.productId}</div>
+                )) */}
+            Корзина пуста
           </div>
         )}
       </MCartContainer>

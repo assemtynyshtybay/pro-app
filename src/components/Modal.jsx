@@ -114,9 +114,9 @@ export const Close = styled.button`
   position: absolute;
   right: 1rem;
   top: 1rem;
-  width: 50px;
-  height: 50px;
-  font-size: 30px;
+  width: 25px;
+  height: 25px;
+  font-size: 20px;
   display: flex;
   align-items: center;
   justify-content: center;

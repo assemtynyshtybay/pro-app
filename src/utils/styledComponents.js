@@ -138,6 +138,7 @@ export const MCartContainer = styled.div`
   bottom: 6rem;
   right: 1rem;
   background-color: var(--dark-blue);
+  color: #fff;
   border-radius: 8px;
   width: 270px;
   height: fit-content;
