@@ -74,7 +74,7 @@ export const Card = styled.div`
   display: grid;
   ${({ url }) => (url ? "backdrop-filter: blur(15px)" : "")};
   grid-template-columns: 35% 55%;
-  grid-template-rows: 0.5fr 1.8fr 0.5fr;
+  grid-template-rows: 0.fr 1.8fr 0.5fr;
   gap: 0.5rem;
   height: auto;
   box-shadow: var(--box-shadow);
