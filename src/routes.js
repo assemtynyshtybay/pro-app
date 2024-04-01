@@ -1,4 +1,4 @@
-import { createBrowserRouter } from "react-router-dom";
+import { createBrowserRouter, Navigate } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import App from "./App";
 import { HOME, NEWS, NEWS_DETAIL, PRODUCT, PRODUCTS } from "./utils/variables";
@@ -33,8 +33,12 @@ export const router = createBrowserRouter([
         element: <ProductsPage />,
       },
       {
-        path: "*",
+        path: "not-found",
         element: <NotFoundPage />,
+      },
+      {
+        path: "*",
+        element: <Navigate replace to={"not-found"} />,
       },
     ],
   },
